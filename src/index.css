@@ -1,0 +1,39 @@
+@font-face {
+  font-family: "walkway_blackregular";
+  src: local("Walkway_Black-webfont"),
+    url("./fonts/Walkway_Black-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "walkway_boldregular";
+  src: local("Walkway_Bold-webfont"),
+    url("./fonts/Walkway_Bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+*,
+::before,
+::after{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a:-webkit-any-link{
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+ol, ul, li {
+  list-style: none;
+	list-style-type: none;
+}
+
+body{
+  font-family: "walkway_boldregular";
+  height: 100%;
+  background-color: whitesmoke;
+}

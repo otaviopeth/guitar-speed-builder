@@ -1,0 +1,47 @@
+header{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding-right: 3em;
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 20px;
+  background-color: #FF4431;
+  color: #282828;
+  font-size: 1.3rem;
+  min-height: 12vh;
+  margin-bottom: 180px;
+}
+
+.navbar{
+  z-index: 1;
+}
+
+
+
+.navbar-links li {
+  
+display: inline-block;
+padding: 0 0.7em;
+transition: all 0.2s;
+
+}
+
+.navbar-links li:hover{
+  
+background-color: #282828;
+line-height: 12vh;
+}
+
+.navbar-links a.active{
+  text-decoration: underline;
+  }
+
+.img-logo{
+  z-index:0;
+  position: absolute;
+  left:6%;
+  top: 0;
+  min-width: 160px;
+  width: 22%;
+}

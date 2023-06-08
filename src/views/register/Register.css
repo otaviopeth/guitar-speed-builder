@@ -1,0 +1,58 @@
+.register-container {
+  padding: 20px 0;
+  text-align: center;
+  width: 30%;
+  margin: 0 auto;
+  font-size: 1.3rem;
+  border-radius: 15px;
+  background-color: rgba(189, 176, 175, 0.3);
+  height: 100%;
+  
+}
+
+.register-container h1 {
+  font-family: "walkway_blackregular";
+  margin-bottom: 4rem;
+}
+
+.register-container li {
+  color: red;
+}
+
+.register-form {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.register-form input {
+  border-radius: 10px;
+  width: 65%;
+  padding: 0 5px;
+  font-size: 1rem;
+  line-height: 2em;
+  margin-bottom: 2rem;
+}
+
+.register-form input:focus{
+  box-shadow: 11px 13px 13px -4px #FF4431;
+}
+
+.register-form button {
+  font-size: 1.5rem;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #FF4431;
+  color: white;
+}
+
+.register-form button:hover{
+  cursor: pointer;
+}
+
+#icon-register{
+  width: 10rem;
+  padding: 20px;
+}

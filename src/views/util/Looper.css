@@ -1,0 +1,53 @@
+.looper-container {
+  padding: 20px 0;
+  text-align: center;
+  width: 60%;
+  margin: 0 auto;
+  font-size: 1.3rem;
+  border-radius: 15px;
+  background-color: rgba(189, 176, 175, 0.3);
+  height: 100%;
+}
+
+.looper-container h1 {
+  font-family: "walkway_blackregular";
+}
+
+.looper {
+  display: flex;
+  margin-top: 30px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.looper > input{
+  border-radius: 10px;
+  font-style: italic;
+  width: 65%;
+  padding: 0 5px;
+  font-size: 1rem;
+  line-height: 2em;
+}
+
+
+.video {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+  gap: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.video-configs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-style: italic;
+}
+
+.input-bar {
+  display: flex;
+  flex-direction: column;
+}
