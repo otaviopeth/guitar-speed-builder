@@ -1,57 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import "./Register.css";
-import axios from "../../lib/axios-client";
 import { useNavigate } from "react-router-dom";
+import useAuthContext from "../../contexts/AuthContext";
 
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [password_confirmation, setPasswordConfirmation] = useState("");
-  const [errors, setErrors] = useState([]);
+  const {register, errors, setErrors} = useAuthContext();
   const navigate = useNavigate();
 
-  const handleRegister = (event) => {
-    event.preventDefault();
-    let errsList = [];
-    axios
-      .get("/sanctum/csrf-cookie")
-      .then(
-        axios
-          .post("/register", {
-            name,
-            email,
-            password,
-            password_confirmation,
-          })
-          .then(() => {
-            setName("");
-            setEmail("");
-            setPassword("");
-            setPasswordConfirmation("");
-            navigate("/login");
-          })
-          .catch((err) => {
-            console.log(err);
-            if (err.response.status === 422) {
-              const errs = err.response.data.errors;
-              let count = 0;
-              for (const key in errs) {
-                errsList.push(<li key={count}>{errs[key]}</li>);
-                count++;
-              }
+  useEffect(() => {
+    setErrors([]);
+  }, [])
 
-              setErrors(errsList);
-            }
-          })
-      )
-      .catch((err) => console.log(err));
+  const handleRegister = async (event) => {
+    event.preventDefault();
+    const redirect = await register({name, email, password, password_confirmation});
+    if(redirect){
+    navigate("/login");
+    }
+      
   };
 
   return (
     <div className="register-container">
       <img id="icon-register" src="/registericon.png" />
-      {errors}
+      {errors.length !== 0 && <h4>Erros: </h4>}
+      <ul>{errors}</ul>
       <form className="register-form" onSubmit={handleRegister}>
         <input
           type="text"

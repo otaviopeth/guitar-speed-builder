@@ -2,13 +2,13 @@ import axios from "../../lib/axios-client";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./Login.css";
+import useAuthContext from "../../contexts/AuthContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
-  const errTitle = "Erros: ";
+  const {login, errors, setErrors} = useAuthContext();
 
   useEffect(() => {
     const checkIfLogged = async () => {
@@ -22,34 +22,15 @@ const Login = () => {
       }
     };
     checkIfLogged();
+    setErrors([]);
   }, []);
 
-  const csrf = () => axios.get("/sanctum/csrf-cookie");
 
   const handleLogin = async (event) => {
     event.preventDefault();
-    let errsList = [];
+    login({email, password});
+    navigate("/util");
 
-    await csrf();
-    try {
-      await axios.post("/login", {
-        email,
-        password,
-      });
-      navigate("/util");
-    } catch (err) {
-      //console.log(err);
-      if (err.response.status === 422) {
-        const errs = err.response.data.errors;
-        let count = 0;
-        for (const key in errs) {
-          errsList.push(<li key={count} >{errs[key]}</li>);
-          count++;
-        }
-
-        setErrors(errsList);
-      }
-    }
   };
 
   return (
