@@ -66,8 +66,8 @@ const Looper = () => {
           }}
         />
 
-        <div className="video">
-          <YouTube
+        <div className="video-container">
+          <YouTube id="video"
             videoId={url.split("v=")[1]}
             onReady={onReady}
             opts={opts}
@@ -89,12 +89,14 @@ const Looper = () => {
               />
               <span>{rate}x</span>
             </div>
-            <span className="video-config-title">Configure o início e o fim do loop:</span>
+            <span className="video-config-title">
+              Configure o início e o fim do loop:
+            </span>
             <div className="input-bar">
               <input
                 type="range"
                 min="0"
-                max={loopend-1}
+                max={loopend - 1}
                 step="1"
                 value={loopstart}
                 onChange={handleLoopstart}
@@ -105,7 +107,7 @@ const Looper = () => {
             <div className="input-bar">
               <input
                 type="range"
-                min={loopstart+1}
+                min={loopstart + 1}
                 max={duration}
                 step="1"
                 value={loopend}

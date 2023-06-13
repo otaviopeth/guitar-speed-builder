@@ -1,4 +1,4 @@
-const LinkList = [
+const LinkListGuest = [
   {
     id: 1,
     title: "Home",
@@ -21,5 +21,19 @@ const LinkList = [
   }, 
 ]
 
+export const LinkListAuth = [
+  {
+    id: 1,
+    title: "Home",
+    url: "/home"
+  },
+  {
+    id: 2,
+    title: "Utilitários",
+    url: "/util"
+  },
 
-export default LinkList;
+]
+
+
+export default LinkListGuest;

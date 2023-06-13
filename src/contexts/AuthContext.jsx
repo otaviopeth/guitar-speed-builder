@@ -21,7 +21,7 @@ export const AuthProvider = ({children}) => {
           email,
           password,
         });
-        getUser();
+        await getUser();
         //navigate("/util");
       } catch (err) {
         //console.log(err);
@@ -35,6 +35,15 @@ export const AuthProvider = ({children}) => {
   
           setErrors(errsList);
         }
+      }
+    }
+
+    const logout = async() => {
+      try{
+      await axios.post('/logout');
+      setUser(null);
+      } catch (err){
+        console.log(err);
       }
     }
 
@@ -67,7 +76,7 @@ export const AuthProvider = ({children}) => {
     }
   
 
-  return (<AuthContext.Provider value={{user, errors, setErrors, login, register}}>{children}</AuthContext.Provider>)
+  return (<AuthContext.Provider value={{user, errors, setErrors, login, register, logout}}>{children}</AuthContext.Provider>)
 }
 
 export default function useAuthContext(){

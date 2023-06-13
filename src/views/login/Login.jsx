@@ -29,7 +29,7 @@ const Login = () => {
   const handleLogin = async (event) => {
     event.preventDefault();
     login({email, password});
-    navigate("/util");
+    navigate("/dashboard");
 
   };
 
