@@ -7,7 +7,6 @@ const AuthLayout = () => {
 
   const navigate = useNavigate();
   const {user} = useAuthContext();
-
   if(!user){
     navigate('/home');
   }

@@ -1,13 +1,11 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import "./Header.css";
 import Logo from "../../assets/logo.png";
 import useAuthContext from "../../contexts/AuthContext";
-
+import './Header.css'
 const Header = ({menu}) => {
 
   const {user, logout} = useAuthContext();
   const navigate = useNavigate();
-  console.log(user);
   const handleLogout = async (e) => {
     try{
     await logout();
@@ -18,7 +16,7 @@ const Header = ({menu}) => {
   }
 
   return (
-    <header>
+    <header style={{backgroundColor: user ? '#c21f9f' : '#FF4431'}}>
       <Link to={menu[0].url}>
         <img className="img-logo" src={Logo} alt="SpeedBuilder Logo" />
       </Link>
