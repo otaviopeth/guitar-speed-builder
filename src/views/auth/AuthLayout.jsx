@@ -12,7 +12,7 @@ const AuthLayout = () => {
   }
   return (
     <>
-      <Header menu={LinkListAuth} />
+      <Header />
       <Outlet />
     </>
   );

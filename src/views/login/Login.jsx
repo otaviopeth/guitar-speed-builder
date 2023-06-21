@@ -15,7 +15,7 @@ const Login = () => {
       try {
         const check = await axios.get("/api/status");
         if (check.data["auth"]) {
-          navigate("/home");
+          navigate("/dashboard");
         }
       } catch (err) {
         // console.log(err);
@@ -28,8 +28,8 @@ const Login = () => {
 
   const handleLogin = async (event) => {
     event.preventDefault();
-    login({email, password});
-    navigate("/dashboard");
+    await login({email, password});
+    navigate("/util");
 
   };
 

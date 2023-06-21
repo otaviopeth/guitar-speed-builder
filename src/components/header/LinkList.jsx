@@ -32,6 +32,16 @@ export const LinkListAuth = [
     title: "Utilitários",
     url: "/util"
   },
+  {
+    id: 3,
+    title: "Músicas",
+    url: "/musicas"
+  },
+  {
+    id: 4,
+    title: "Speeder",
+    url: "/speeder"
+  }
 
 ]
 

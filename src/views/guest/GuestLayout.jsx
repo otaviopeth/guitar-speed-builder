@@ -4,7 +4,7 @@ import LinkListGuest from "../../components/header/LinkList";
 const GuestLayout = () => {
   return (
     <>
-    <Header menu={LinkListGuest}/>
+    <Header/>
     <Outlet/>
     </>
   )

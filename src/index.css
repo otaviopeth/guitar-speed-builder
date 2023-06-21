@@ -28,6 +28,7 @@ a:-webkit-any-link{
 }
 
 ol, ul, li {
+  
   list-style: none;
 	list-style-type: none;
 }

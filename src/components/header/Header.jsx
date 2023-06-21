@@ -1,11 +1,14 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo.png";
 import useAuthContext from "../../contexts/AuthContext";
-import './Header.css'
-const Header = ({menu}) => {
+import LinkListGuest from "./LinkList";
+import { LinkListAuth } from "./LinkList";
+import './Header.css';
+const Header = () => {
 
   const {user, logout} = useAuthContext();
   const navigate = useNavigate();
+  console.log(user);
   const handleLogout = async (e) => {
     try{
     await logout();
@@ -17,18 +20,23 @@ const Header = ({menu}) => {
 
   return (
     <header style={{backgroundColor: user ? '#c21f9f' : '#FF4431'}}>
-      <Link to={menu[0].url}>
+      <Link to={LinkListAuth[0].url}>
         <img className="img-logo" src={Logo} alt="SpeedBuilder Logo" />
       </Link>
       <nav className="navbar">
         <ul className="navbar-links">
-          {menu.map((item) => (
+          {user && <li id='name' key='999'>&#91; {user.name.split(" ")[0]}  &#93;</li>}
+          {user ? LinkListAuth.map((item) => (
             <li key={item.id}>
               <NavLink to={item.url}>{item.title}</NavLink>
             </li>
-          ))}
+          )) : LinkListGuest.map((item) => (
+            <li key={item.id}>
+              <NavLink to={item.url}>{item.title}</NavLink>
+            </li>
+          )) }
           {user && <li id="btn" key='0'>
-            <button onClick={handleLogout}>Logout
+            <button onClick={handleLogout}>Sair
             </button>
             </li>}
         </ul>

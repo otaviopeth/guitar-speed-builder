@@ -62,3 +62,7 @@ line-height: 12vh;
   min-width: 160px;
   width: 22%;
 }
+
+#name:hover{
+  background-color: inherit;
+}
