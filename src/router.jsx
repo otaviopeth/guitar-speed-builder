@@ -5,6 +5,7 @@ import Looper from "./views/util/Looper";
 import Login from "./views/login/Login";
 import Register from "./views/register/Register";
 import AuthLayout from "./views/auth/AuthLayout";
+import SongList from "./views/songs/SongList";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <Navigate to="/util" />,
       },
+      {
+        path: "/musicas",
+        element: <SongList />
+      }
      
     ],
   },

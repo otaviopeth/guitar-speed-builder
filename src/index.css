@@ -33,8 +33,33 @@ ol, ul, li {
 	list-style-type: none;
 }
 
+h1{
+  font-family: "walkway_blackregular";
+}
+
 body{
   font-family: "walkway_boldregular";
   height: 100%;
   background-color: whitesmoke;
+}
+
+table{
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+
+th{
+  font-family: "walkway_blackregular";
+  padding: 20px;
+  font-weight: bold;
+}
+
+td{
+  padding: 5px 20px 5px 20px;
+}
+
+th,td{
+ border-top: 1px solid black;
+ border-bottom: 1px solid black;
 }

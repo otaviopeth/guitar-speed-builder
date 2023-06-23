@@ -8,19 +8,13 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const {login, errors, setErrors} = useAuthContext();
+  const {user, login, errors, setErrors} = useAuthContext();
 
   useEffect(() => {
-    const checkIfLogged = async () => {
-      try {
-        const check = await axios.get("/api/status");
-        if (check.data["auth"]) {
-          navigate("/dashboard");
-        }
-      } catch (err) {
-        // console.log(err);
-      }
-    };
+    const checkIfLogged = () => {
+     if(user){
+      navigate('/util');
+     }};
     checkIfLogged();
     setErrors([]);
   }, []);

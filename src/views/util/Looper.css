@@ -9,10 +9,6 @@
   height: 100%;
 }
 
-.looper-container h1 {
-  font-family: "walkway_blackregular";
-}
-
 .looper {
   display: flex;
   margin-top: 30px;

@@ -1,0 +1,23 @@
+.song-container{
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  max-width: 100%;
+  font-size: 1.5rem;
+  margin: 0 auto;
+  border-radius: 15px;
+  background-color: rgba(189, 176, 175, 0.3);
+  height: 100%;
+}
+
+.song-tbl thead tr{
+  background-color: #c21f9f;
+}
+
+
+.song-tbl{
+  overflow-x:auto;
+  max-width: 100%;
+}
