@@ -1,33 +1,25 @@
+/*
 import "./SongList.css";
 import axios from "../../lib/axios-client";
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPenToSquare, faTrash, faPlus } from "@fortawesome/free-solid-svg-icons";
-import Confirmation from "../../components/modal/Confirmation";
+import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 const SongList = () => {
   const [list, setList] = useState([]);
   const [openModal, setOpenModal] = useState(false);
-  const [selectedItem, setSelectedItem] = useState({});
 
   useEffect(() => {
-    updateList();
+    handleList();
   }, []);
 
-  const handleDelete = async () => {
-    await axios.delete("/api/songs/" + selectedItem.id);
-    updateList();
+  const handleDelete = async (id) => {
+    await axios.delete("/api/songs/" + id);
+    handleList();
   };
 
-  const updateList = async () => {
+  const handleList = async () => {
     const { data } = await axios.get("/api/songs");
     setList(data);
-  };
-
-  const handleOpenModal = (item) => {
-    setSelectedItem(item);
-    setOpenModal(true);
-
   };
 
   return (
@@ -42,8 +34,7 @@ const SongList = () => {
               <th>Artista</th>
               <th>Gênero</th>
               <th>Editar</th>
-              <th>Excluir</th>
-              <th><NavLink to="/musicas/cadastro">Cadastrar <FontAwesomeIcon icon={faPlus}  style={{ color: "#ffffff" }} beat size="sm" /></NavLink></th>
+              <th>Deletar</th>
             </tr>
           </thead>
           <tbody>
@@ -62,7 +53,7 @@ const SongList = () => {
                   </button>
                 </td>
                 <td>
-                  <button onClick={() => handleOpenModal(item)}>
+                  <button onClick={() => handleDelete(item.id)}>
                     <FontAwesomeIcon
                       icon={faTrash}
                       size="2xl"
@@ -75,12 +66,9 @@ const SongList = () => {
           </tbody>
         </table>
       </div>
-      <Confirmation 
-      isOpen={openModal} setModalOpen={() => setOpenModal(!openModal)} confirmFunc={handleDelete}>
-        <h3>Tem certeza que deseja excluir o item "{selectedItem?.name}"?</h3>
-      </Confirmation>
     </div>
   );
 };
 
 export default SongList;
+/*
