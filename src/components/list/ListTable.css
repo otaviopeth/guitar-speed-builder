@@ -1,4 +1,4 @@
-.song-container{
+.list-container{
   padding: 20px 0;
   display: flex;
   flex-direction: column;
@@ -13,12 +13,12 @@
 }
 
 
-.song-tbl thead tr{
+.list-tbl thead tr{
   background-color: #c21f9f;
 }
 
 
-.song-tbl{
+.list-tbl{
   margin-top: 30px;
   overflow-x:auto;
   max-width: 100%;

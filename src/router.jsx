@@ -6,6 +6,8 @@ import Login from "./views/login/Login";
 import Register from "./views/register/Register";
 import AuthLayout from "./views/auth/AuthLayout";
 import SongList from "./views/songs/SongList";
+import SongItem from "./views/songs/SongItem";
+import SongEdit from "./views/songs/SongEdit";
 
 const router = createBrowserRouter([
   {
@@ -18,7 +20,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/musicas",
-        element: <SongList />
+        element: <SongList/>
+      },
+      {
+        path:"/musicas/cadastro",
+        element: <SongItem/>
+      },
+      {
+        path: "/musicas/edit/:id",
+        element: <SongEdit/>
       }
      
     ],

@@ -8,7 +8,7 @@ const Header = () => {
 
   const {user, logout} = useAuthContext();
   const navigate = useNavigate();
-  console.log(user);
+  //console.log(user);
   const handleLogout = async (e) => {
     try{
     await logout();
