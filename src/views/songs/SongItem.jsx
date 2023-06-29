@@ -1,21 +1,37 @@
 import './SongItem.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRotateLeft } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../../lib/axios-client";
-const SongItem = () => {
+const SongItem = ({method, apiRoute, mainBtn, id}) => {
   const [name, setName] = useState("");
   const [artist, setArtist] = useState("");
   const [genre, setGenre] = useState("");
   const [errors, setErrors] = useState([]);
 
   const navigate = useNavigate();
-  const handleSubmit = async (e) => {
+
+  useEffect(() => {
+  const checkEdit = async() => {
+    if(method==="edit"){
+      const response = await axios.get(apiRoute);
+      setName(response.data.name);
+      setArtist(response.data.artist);
+      setGenre(response.data.genre);
+    }
+    setErrors([]);
+  }
+
+  checkEdit();
+
+}, []);
+  
+  const handleRegister = async (e) => {
     let errsList = [];
     e.preventDefault();
     try {
-     await axios.post("/api/songs", {
+     await axios.post(`${apiRoute}`, {
         name,
         artist,
         genre,
@@ -37,12 +53,40 @@ const SongItem = () => {
     }
   };
 
+  const handleEdit = async (e) => {
+    let errsList = [];
+    e.preventDefault();
+    try {
+      await axios.put(`${apiRoute}`, {
+        name,
+        artist,
+        genre,
+      });
+      setName("");
+      setArtist("");
+      setGenre("");
+    } catch (err) {
+      console.log(err);
+      if (err.response.status === 422) {
+        const errs = err.response.data.errors;
+        let count = 0;
+        for (const key in errs) {
+          errsList.push(<li key={count} >{errs[key]}</li>);
+          count++;
+        }
+
+        setErrors(errsList);
+      }
+    }
+  };
+  
+
   return (
     <div className="item-container">
       <h1>Músicas</h1>
       {errors.length !== 0 && <h4>Erros: </h4>}
       <ul>{errors}</ul>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={method==="register" ? handleRegister : handleEdit }>
         <div className="item-reg">
           <div className="itens">
             <label>Nome: <span className="mandatory">*</span></label>
@@ -75,7 +119,7 @@ const SongItem = () => {
             <button type="button" id="back" onClick={() => navigate(-1)}>
               <FontAwesomeIcon icon={faRotateLeft} spin spinReverse size="xl" />
             </button>
-            <button type="submit">Cadastrar</button>
+            <button type="submit">{mainBtn}</button>
           </div>
         </div>
       </form>

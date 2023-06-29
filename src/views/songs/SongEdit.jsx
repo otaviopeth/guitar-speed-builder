@@ -1,11 +1,12 @@
 import { useParams } from "react-router-dom"
+import SongItem from "./SongItem";
 const SongEdit = () => {
 
   const {id} = useParams();
 
   
   return (
-    <div>SongEdit - {id}</div>
+    <SongItem method="edit" apiRoute={`/api/songs/${id}`} mainBtn="Editar" id={id}/>
   )
 }
 
