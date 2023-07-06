@@ -9,6 +9,9 @@ import SongList from "./views/songs/SongList";
 import SongItem from "./views/songs/SongItem";
 import SongEdit from "./views/songs/SongEdit";
 import SongRegister from "./views/songs/SongRegister";
+import SpeederList from "./views/speeders/SpeederList";
+import SpeederRegister from "./views/speeders/SpeederRegister";
+import SpeederEdit from "./views/speeders/SpeederEdit";
 
 const router = createBrowserRouter([
   {
@@ -30,8 +33,19 @@ const router = createBrowserRouter([
       {
         path: "/musicas/edit/:id",
         element: <SongEdit/>
+      },
+      {
+        path: "/speeder",
+        element: <SpeederList/>
+      },
+      {
+        path:"/speeder/cadastro",
+        element: <SpeederRegister/>
+      },
+      {
+        path:"/speeder/edit/:id",
+        element: <SpeederEdit/>
       }
-     
     ],
   },
   {

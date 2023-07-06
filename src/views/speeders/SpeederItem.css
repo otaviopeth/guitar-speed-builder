@@ -1,0 +1,68 @@
+.speeder-container{
+  text-align: center;
+  padding: 20px 0;
+  width: 70%;
+  font-size: 1.5rem;
+  margin: 0 auto;
+  border-radius: 15px;
+  background-color: rgba(189, 176, 175, 0.3);
+  height: 100%;
+
+}
+
+.speeder-container li{
+  color: red;
+}
+
+.speeder-reg{
+  margin: 20px 0 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.3rem;
+  max-width: 100%;
+}
+
+.speeders input {
+  font-size: 1.3rem;
+  width: 100%;
+}
+.speeders select{
+  margin-bottom: 5px;
+  
+  font-size: 1.3rem;
+}
+
+.bpm{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.speeder-reg button {  
+  font-size: 1.0rem;
+  margin-top: 5px;
+  border: 0;
+  border-radius: 5px;
+  color: white;
+  padding: 15px;
+  background-color: black;
+}
+
+.speeders{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.btn-container{
+  display: flex;
+  gap:5px;
+}
+
+.mandatory{
+  font-family: "walkway_blackregular";
+}
+#back{
+  background-color: rgb(110, 104, 109);
+}

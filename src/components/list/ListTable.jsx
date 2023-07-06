@@ -46,11 +46,25 @@ const ListTable = ({title, entityName, routeName, tableHeaders}) => {
             </tr>
           </thead>
           <tbody>
-            {list.map((item) => (
+          {list.map((item) => (
               <tr>
+                {entityName==="songs" &&
+                <>
                 <td>{item.name}</td>
                 <td>{item.artist}</td>
                 <td>{item.genre}</td>
+                </>}
+
+                {entityName==="speeders" &&
+                <>
+                <td>{item.song.name}</td>
+                <td>{item.desc}</td>
+                <td>{item.og_speed}</td>
+                <td>{item.cur_speed}</td>
+                <td>{item.cur_speed>=item.og_speed ? "Sim" : "Não"}</td>
+                <td>{item.updated_at.split('T')[0]}</td>
+                </>}
+                
                 <td>
                   <NavLink to={`/${routeName}/edit/${item.id}`}>
                     <FontAwesomeIcon
@@ -76,7 +90,7 @@ const ListTable = ({title, entityName, routeName, tableHeaders}) => {
       </div>
       <Confirmation 
       isOpen={openModal} setModalOpen={() => setOpenModal(!openModal)} confirmFunc={handleDelete}>
-        <h3>Tem certeza que deseja excluir o item "{selectedItem?.name}"?</h3>
+        <h3>Tem certeza que deseja excluir o item "{selectedItem?.name ? selectedItem?.name : `${selectedItem?.song?.name} - ${selectedItem?.desc}`}"?</h3>
       </Confirmation>
     </div>
   );

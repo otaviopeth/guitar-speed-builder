@@ -6,7 +6,7 @@ const SongEdit = () => {
 
   
   return (
-    <SongItem method="edit" apiRoute={`/api/songs/${id}`} mainBtn="Editar" id={id}/>
+    <SongItem method="edit" apiRoute={`/api/songs/${id}`} mainBtn="Editar"/>
   )
 }
 

@@ -4,7 +4,7 @@ import { faRotateLeft } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../../lib/axios-client";
-const SongItem = ({method, apiRoute, mainBtn, id}) => {
+const SongItem = ({method, apiRoute, mainBtn}) => {
   const [name, setName] = useState("");
   const [artist, setArtist] = useState("");
   const [genre, setGenre] = useState("");
