@@ -24,7 +24,7 @@ export const AuthProvider = ({children}) => {
         await getUser();
         //navigate("/util");
       } catch (err) {
-        //console.log(err);
+        console.log(err);
         if (err.response.status === 422) {
           const errs = err.response.data.errors;
           let count = 0;
@@ -59,7 +59,7 @@ export const AuthProvider = ({children}) => {
         });
         return true;
       } catch (err) {
-        //console.log(err);
+        console.log(err);
         if (err.response.status === 422) {
           const errs = err.response.data.errors;
           let count = 0;

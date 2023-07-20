@@ -13,6 +13,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "aller_regular";
+  src: local("Aller_Rg"),
+    url("./fonts/Aller_Rg.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
 *,
 ::before,
 ::after{
