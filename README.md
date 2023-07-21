@@ -13,7 +13,7 @@ O back-end, que se encontra privado, foi desenvolvido utilizando:
 
 ## 🚀 Preview
 
-O sistema pode ser utilizado em: 
+O sistema completo pode ser visto em: 
 ```
 https://guitarspeedbuilder.net/
 ```
