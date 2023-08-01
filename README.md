@@ -7,7 +7,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [React](https://pt-br.reactjs.org/)
 - https://www.npmjs.com/package/react-youtube
 
-O back-end, que se encontra privado, foi desenvolvido utilizando:
+O back-end, que se encontra em repositório à parte, foi desenvolvido utilizando:
 - [Laravel](https://laravel.com/)
 - [Breeze](https://github.com/laravel/breeze)
 
